@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+</head>
+<body class="bg-secondary-subtle">
+<div class="container-fluid">
+
+    <div class="logout-btn-container">
+        <form th:action="@{/logout}" method="post" style="display: inline;">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
+
+    <div class="new-course-container">
+        <a th:href="@{/admin/courses/new-course}" class="btn btn-primary  me-1">+</a><b>Add Course</b>
+    </div>
+
+    <div class="main-btn-container">
+        <a th:href="@{/admin/main}" class="btn btn-outline-primary">Welcome to Admin Main</a>
+    </div>
+
+    <h2 class="text-center mt-3">Available Courses</h2>
+
+    <form class="d-flex mb-4" th:action="@{/admin/main}" method="get">
+        <div class="container col-md-5 col-sm-8 col-xs-12 col-lg-offset-4 col-md-offset-3 col-sm-offset-2 d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search Courses" aria-label="Search" name="keyword" required>
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+        </div>
+    </form>
+
+    <div th:if="${courses.isEmpty()}">
+        <h5 class="text-center text-danger">No courses available.</h5>
+    </div>
+    <div th:if="${!courses.isEmpty()}">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div th:each="course : ${courses}" class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title" th:text="${course.name}"></h3>
+                        <p class="card-text"><b>Maximum Participants:</b> <b><span th:text="${course.maxParticipants}"></span></b></p>
+                        <a th:href="@{/admin/courses/edit-course/{id}(id=${course.id})}" class="btn btn-success mt-1">Edit</a>
+                        <a th:href="@{/admin/courses/delete/{id}(id=${course.id})}" class="btn btn-secondary btn-sm mt-1">
+                            <img src="/images/delete2.png" alt="Delete" class="fixed-img-size" >
+                        </a>
+                        <a th:href="@{/admin/courses/{id}/participants(id=${course.id})}" class="btn btn-dark mt-1">Participants</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+</body>
+</html>

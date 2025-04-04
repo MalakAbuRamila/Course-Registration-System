@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"hac.course"},{"l":"hac.course.config"},{"l":"hac.course.controllers"},{"l":"hac.course.repositories"},{"l":"hac.course.services"}];updateSearchResults();

@@ -1,0 +1,162 @@
+.blue-background {
+    background-color: steelblue;
+    color: white;
+}
+
+
+.navbar-brand {
+    color: white;
+    font-size: 1.5em;
+}
+
+.navbar-nav .nav-link {
+    border-color: white;
+    color: white;
+}
+.navbar-nav .nav-link:hover {
+    background-color: #004080;
+
+}
+.navbar-btn {
+    border-radius: 50px;
+    border-color: white;
+}
+.login {
+    background-color: steelblue;
+    color: white;
+}
+
+.alert {
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.alert.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.body-success{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: steelblue;
+    margin: 0;
+}
+.check-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.success-message {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+}
+.success-header {
+    background-color: steelblue;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px;
+}
+
+.success-body {
+    padding: 20px;
+}
+
+.success-button a {
+    margin-top: 20px;
+    background-color: steelblue;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.success-button a:hover{
+    background-color: darkgray;
+}
+
+.logout-btn-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.btn-container{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.btn-container a:hover{
+    background-color: darkgray;
+}
+
+.new-course-container{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+
+}
+.main-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.red-text{
+    color: firebrick;
+}
+
+.fixed-img-size {
+    width: 25px;
+    height: 25px;
+}
+
+.full-height {
+    height: 100vh;
+}
+.vertical-image {
+    background: url('../images/course.png') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+}
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.course-name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.course-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+
+.table-container.table {
+    width: 100%;
+    max-width: 600px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Participants</title>
+    <link rel="stylesheet" th:href="@{/css/cssStyle.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+</head>
+<body class="bg-secondary-subtle">
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 th:text="'Participants for ' + ${course.name}"></h1>
+        <a class="btn btn-outline-primary" th:href="@{/admin/main}">Back to admin main</a>
+    </div><br><br>
+    <div class="d-flex align-items-center justify-content-center mt-5" th:if="${participants.isEmpty()}">
+        <h3 class="text-danger fw-bold">No participants available.</h3>
+    </div>
+    <div th:unless="${participants.isEmpty()}">
+        <div class="card">
+            <div class="card-header">
+                <b>Participants List</b>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr >
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Manage</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="participant : ${participants}">
+                        <td th:text="${participant.firstName}"></td>
+                        <td th:text="${participant.lastName}"></td>
+                        <td th:text="${participant.email}"></td>
+                        <td>
+                            <form th:action="@{/admin/removeParticipant}" method="post" class="d-inline">
+                                <input type="hidden" name="courseId" th:value="${course.id}">
+                                <input type="hidden" name="userId" th:value="${participant.id}">
+                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
